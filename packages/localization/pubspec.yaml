@@ -1,12 +1,12 @@
 name: localization
-description: Localization package for fitness tracker application.
+description: Localization package for Pulse application.
 version: 0.1.0+1
 publish_to: none
 resolution: workspace
 
 environment:
-  sdk: ^3.10.8
-  flutter: ^3.38.9
+  sdk: ^3.11.0
+  flutter: ^3.41.2
 
 dependencies:
   flutter:

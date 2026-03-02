@@ -53,21 +53,29 @@ jobs:
       - name: "Action: Flutter Setup"
         uses: ./.github/actions/flutter_setup
         with:
-          flutter-version: "3.38.9"
-          flutter-channel: "stable"
-          melos-version: "7.4.0"
+          version: "3.41.2"
+          channel: "stable"
 
-      - name: "Melos: Bootstrap"
-        run: dart run melos bootstrap
+      - name: "Create .env file for code generation"
+        run: |
+          echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" > packages/infrastructure/.env.development
+          echo "SUPABASE_ANONYMOUS_KEY=${{ secrets.SUPABASE_ANONYMOUS_KEY }}" >> packages/infrastructure/.env.development
+          echo "POWERSYNC_URL=${{ secrets.POWERSYNC_URL }}" >> packages/infrastructure/.env.development
+          echo "POWERSYNC_TOKEN=${{ secrets.POWERSYNC_TOKEN }}" >> packages/infrastructure/.env.development
+          echo "APPLICATION_NAME=${{ secrets.APPLICATION_NAME }}" >> packages/infrastructure/.env.development
+
+      - name: "Flutter: Generate Files"
+        run: |
+          melos run generate --no-select
 
       - name: "Flutter: Format Check"
-        run: dart run melos run format
+        run: melos run format
 
       - name: "Flutter: Analyze"
-        run: dart run melos run analyze
+        run: melos run analyze
 
       - name: "Flutter: Test"
-        run: dart run melos run test
+        run: melos run test
 
   standard-semantic-pull-request:
     name: "Standard / Semantic Pull Request"
@@ -104,7 +112,7 @@ jobs:
         uses: actions/checkout@v6.0.2
 
       - name: "Spell Check: Verify Repository"
-        uses: streetsidesoftware/cspell-action@v8.2.0
+        uses: streetsidesoftware/cspell-action@v8.3.0
         with:
           files: "**/*.{dart,md,txt,yaml,json}"
           config: ".cspell.json"

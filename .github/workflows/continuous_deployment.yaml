@@ -19,18 +19,14 @@ jobs:
     name: "Release / Android"
     runs-on: ubuntu-latest
     steps:
-      - name: "Repository: Checkout"
+      - name: "Repo: Checkout"
         uses: actions/checkout@v6.0.2
 
       - name: "Action: Flutter Setup"
         uses: ./.github/actions/flutter_setup
         with:
-          flutter-version: "3.38.9"
-          flutter-channel: "stable"
-          melos-version: "7.4.0"
-
-      - name: "Melos: Bootstrap"
-        run: dart run melos bootstrap
+          version: "3.41.2"
+          channel: "stable"
 
       - name: "Build: Android Bundle"
         run: flutter build appbundle --release

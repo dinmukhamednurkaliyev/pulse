@@ -1,10 +1,10 @@
-name: fitness_tracker
-description: A Very Good Project created by Very Good CLI.
+name: pulse
+description: Pulse
 version: 1.0.0+1
 publish_to: none
 
 workspace:
-  - packages/core
+  - packages/infrastructure
   - packages/appearance
   - packages/localization
   - packages/home
@@ -12,18 +12,23 @@ workspace:
   - packages/session
 
 environment:
-  sdk: ^3.10.8
-  flutter: ^3.38.9
+  sdk: ^3.11.0
+  flutter: ^3.41.2
 
 dependencies:
   appearance:
     path: packages/appearance
-  core:
-    path: packages/core
+  bloc: ^9.2.0
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
+  go_router: ^17.1.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
   home:
     path: packages/home
+  infrastructure:
+    path: packages/infrastructure
   profile:
     path: packages/profile
   session:
@@ -50,21 +55,25 @@ flutter:
 melos:
   scripts:
     analyze:
-      run: melos exec -- flutter analyze
+      run: melos exec --concurrency=6 -- flutter analyze
       description: Run flutter analyze for all packages.
 
     format:
-      run: melos exec -- dart format .
+      run: melos exec --concurrency=6 -- dart format .
       description: Run dart format for all packages.
 
     test:
-      run: melos exec -- flutter test
+      run: melos exec --concurrency=1 -- flutter test
       description: Run flutter test for all packages.
 
     clean:
-      run: melos exec -- flutter clean
+      run: melos exec --concurrency=6 -- flutter clean
       description: Run flutter clean in all packages.
 
     get:
-      run: melos bootstrap
+      run: melos exec --concurrency=6 -- flutter pub get
       description: Install dependencies for all packages.
+
+    generate:
+      run: melos exec --concurrency=1 -- dart run build_runner build --delete-conflicting-outputs
+      description: Generate code for all packages

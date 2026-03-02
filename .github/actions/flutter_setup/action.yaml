@@ -2,15 +2,12 @@ name: "Action: Flutter Setup"
 description: "Setup Flutter environment"
 
 inputs:
-  flutter-version:
+  version:
     description: "Flutter version"
     required: true
-  flutter-channel:
+  channel:
     description: "Flutter channel"
     default: "stable"
-  melos-version:
-    description: "Melos version"
-    required: true
 
 runs:
   using: composite
@@ -18,9 +15,10 @@ runs:
     - name: "Flutter: Install"
       uses: subosito/flutter-action@v2.21.0
       with:
-        flutter-version: ${{ inputs.flutter-version }}
-        channel: ${{ inputs.flutter-channel }}
+        flutter-version: ${{ inputs.version }}
+        channel: ${{ inputs.channel }}
         cache: true
+        cache-key: "flutter-:os:-:channel:-:version:-:arch:-:hash:"
 
     - name: "Pub: Cache Dependencies"
       uses: actions/cache@v5.0.3
@@ -32,18 +30,26 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pub-
 
-    - name: "Pub: Get Packages"
+    # - name: "Pub: Get Packages"
+    #   shell: bash
+    #   run: |
+    #     echo "::group::Get Packages"
+    #     flutter pub get
+    #     echo "::endgroup::"
+
+    - name: "Melos: Install"
       shell: bash
       run: |
-        echo "::group::Get Packages"
-        flutter pub get
-        echo "::endgroup::"
+        if ! command -v melos &> /dev/null; then
+          echo "::group::Activating Melos"
+          dart pub global activate melos --quiet
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          echo "::endgroup::"
+        fi
 
-    - name: "Melos: Install & Activate"
+    - name: "Melos: Bootstrap"
       shell: bash
       run: |
-        echo "::group::Activate Melos"
-        dart pub global activate melos ${{ inputs.melos-version }}
-
-        echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+        echo "::group::Melos Bootstrap"
+        $HOME/.pub-cache/bin/melos bootstrap
         echo "::endgroup::"

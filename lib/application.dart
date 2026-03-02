@@ -1,7 +1,7 @@
 import 'package:appearance/appearance.dart';
-import 'package:core/core.dart';
-import 'package:fitness_tracker/navigation/navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pulse/navigation/router.dart';
 
 class Application extends StatefulWidget {
   const Application({super.key});
