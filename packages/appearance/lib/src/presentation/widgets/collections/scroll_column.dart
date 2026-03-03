@@ -1,8 +1,8 @@
 import 'package:appearance/appearance.dart';
 import 'package:flutter/material.dart';
 
-class DataScroll extends StatelessWidget {
-  const DataScroll({
+class ScrollColumn extends StatelessWidget {
+  const ScrollColumn({
     required this.children,
     super.key,
     this.padding,

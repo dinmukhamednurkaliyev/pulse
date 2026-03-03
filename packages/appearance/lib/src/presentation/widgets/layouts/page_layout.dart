@@ -1,10 +1,10 @@
 import 'package:appearance/appearance.dart';
 import 'package:flutter/material.dart';
 
-class PageStandard extends StatelessWidget {
-  const PageStandard({
+class PageLayout extends StatelessWidget {
+  const PageLayout({
     required this.body,
-    this.safe = true,
+    this.useSafeArea = true,
     this.appBar,
     this.bottomNavigationBar,
     this.scrollController,
@@ -16,7 +16,7 @@ class PageStandard extends StatelessWidget {
   final Widget body;
   final Widget? appBar;
   final Widget? bottomNavigationBar;
-  final bool safe;
+  final bool useSafeArea;
   final ScrollController? scrollController;
   final Widget? floatingActionButton;
   final Color? backgroundColor;
@@ -27,7 +27,7 @@ class PageStandard extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor ?? context.color.backgroundPrimary,
       appBar: appBar != null ? _buildAppBar(appBar!) : null,
-      body: safe
+      body: useSafeArea
           ? SafeArea(
               child: Padding(
                 padding: EdgeInsetsGeometry.symmetric(

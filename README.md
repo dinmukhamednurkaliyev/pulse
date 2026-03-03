@@ -56,12 +56,14 @@ It demonstrates professional-grade standards including:
 ## Technologies
 | Category | Tools |
 | :--- | :--- |
-| **Framework** | `flutter`, `dart` |
+| **Language** | `dart` |
+| **Framework** | `flutter` |
+| **Package Manager** | `melos` |
 | **State Management** | `bloc`, `flutter_bloc` |
 | **Navigation** | `go_router` |
-| **Local Database** | `hive`, `hive_flutter` |
-| **Animations** | `rive` |
-| **Quality Control** | `very_good_analysis` |
+| **Local Persistence** | `hive`, `hive_flutter` |
+| **Vector Animations** | `rive` |
+| **Static Analysis** | `very_good_analysis` |
 
 ## Architecture
 
@@ -92,41 +94,22 @@ graph TD
     linkStyle 2 stroke:#cbd5e1,stroke-width:1px,stroke-dasharray: 5 5;
 ```
 
-### Modular Strategy
-Instead of a standard monolithic "lib" folder, this project uses a **Multi-Package Monorepo** approach. This ensures strict boundaries between features, simplifies testing, and improves build times.
 
-TODO: Update deprecated information about Core package
-### Multi-Package Structure
-- **Core Package (`packages/core`)**: The backbone of the app. It acts as a **Single Source of Truth** for strict dependencies (Bloc, Dio, Hive, GoRouter) using Barrel files (`export`). It also contains shared entities and utilities.
-- **Appearance Package (`packages/appearance`)**: A dedicated Design System module. It houses all atomic design tokens (Colors, Typography, Spacing) and assets (Rive animations). It exposes `context` extensions for type safe UI development.
-- **Feature Modules (`packages/home`, `profile`, etc.)**: Encapsulated business logic and UI. Features are horizontal slices that never depend on each other directly, only on the Core or Shared UI kit.
-
-TODO: Update deprecated information about Bloc and Cubit, and Core package
 ### Key Technical Decisions
 | Decision | Rationale |
 | :--- | :--- |
-| **GoRouter & ShellRoute** | Implements persistent bottom navigation (keeping tabs alive) while allowing deep linking and nested routes properly. |
-| **Flutter Bloc & Cubit** | Provides predictable state management. The `Core` package enforces a single version of Bloc across the app to avoid conflicts. |
-| **Atomic Design via Code** | The `Appearance` package forces usage of defined tokens (e.g. `context.colors.primary`), bridging the gap between design and development. |
-| **Strict Linting** | Uses `very_good_analysis` for high code quality and strict typing rules. |
-| **Barrel Files** | Reduces import clutter. Importing `package:core/core.dart` gives access to all necessary third-party and shared tools. |
 
-TODO: Update deprecated information about Core package
 ### Engineering Challenges
 | Challenge | Solution |
 | :--- | :--- |
-| **Dependency Hell** | Centralized exports in `core` package, ensuring version consistency across all modules. |
-| **Code Readability** | Implemented **Context Extensions** for the Design System, allowing `context.layout.button` syntax. |
-| **Navigation State** | Utilized `StatefulShellRoute` to preserve the state of complex flows within each tab. |
 
 
 ## Getting Started
 
-TODO: Update deprecated information about Flutter and Dart SDKs
 ### Prerequisites
 Ensure you have the following installed:
-- **Flutter SDK**: `^3.38.9`
-- **Dart SDK**: `^3.10.8`
+- **Flutter SDK**: `^3.41.2`
+- **Dart SDK**: `^3.11.0`
 - **Melos**: FLutter/Dart package manager for monorepos.
   ```bash
   dart pub global activate melos
