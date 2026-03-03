@@ -9,11 +9,11 @@
 
 ## Contents
 1. [Overview](#overview)
-2. [Features](#features)
-3. [Platform Availability](#platform-availability)
-4. [Preview](#preview)
-5. [Technologies](#technologies)
-6. [Architecture](#architecture)
+2. [Preview](#preview)
+3. [Features](#features)
+4. [Platform Availability](#platform-availability)
+5. [Architecture](#architecture)
+6. [Technologies](#technologies)
 7. [Getting Started](#getting-started)
 8. [License](#license)
 
@@ -29,6 +29,20 @@ It demonstrates professional-grade standards including:
 - Resilient State Management: Predictable flows using BLoC with centralized dependency orchestration.
 
 - Enterprise Tooling: 100% adherence to very_good_analysis and automated CI-ready structure.
+
+## Preview
+
+Experience the application directly in your browser or on a physical device.
+
+**[Launch Web Interactive Demo](https://dinmukhamednurkaliyev.github.io/pulse/)**
+
+> **Note**: The web demo uses `device_preview` to simulate a mobile environment. For the best experience, use a desktop browser.z
+
+---
+
+### Scan to Open
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://dinmukhamednurkaliyev.github.io/pulse/&color=4338ca&qzone=2" width="150" alt="Pulse QR Code" />
+
 
 ## Features
 ### Home
@@ -52,32 +66,6 @@ It demonstrates professional-grade standards including:
 | **Web** | **[ DEMO LIVE ]** | [**Open Demo**](https://dinmukhamednurkaliyev.github.io/pulse/) |
 | **Windows** | **[ PLANNED ]** | -- |
 | **Linux** | **[ PLANNED ]** | -- |
-
-## Preview
-
-Experience the application directly in your browser or on a physical device.
-
-**[Launch Web Interactive Demo](https://dinmukhamednurkaliyev.github.io/pulse/)**
-
-> **Note**: The web demo uses `device_preview` to simulate a mobile environment. For the best experience, use a desktop browser.z
-
----
-
-### Scan to Open
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://dinmukhamednurkaliyev.github.io/pulse/&color=4338ca&qzone=2" width="150" alt="Pulse QR Code" />
-
-## Technologies
-| Category | Tools |
-| :--- | :--- |
-| **Language** | `dart` |
-| **Framework** | `flutter` |
-| **Workflow Automation** | `melos` |
-| **State Management** | `bloc`, `flutter_bloc` |
-| **Navigation** | `go_router` |
-| **Local Persistence** | `hive`, `hive_flutter` |
-| **Vector Animations** | `rive` |
-| **Static Analysis** | `very_good_analysis` |
-| **Demo Tooling** | `device_preview` |
 
 ## Architecture
 
@@ -117,6 +105,18 @@ graph TD
 | Challenge | Solution |
 | :--- | :--- |
 
+## Technologies
+| Category | Tools |
+| :--- | :--- |
+| **Language** | `dart` |
+| **Framework** | `flutter` |
+| **Workflow Automation** | `melos` |
+| **State Management** | `bloc`, `flutter_bloc` |
+| **Navigation** | `go_router` |
+| **Local Persistence** | `hive`, `hive_flutter` |
+| **Vector Animations** | `rive` |
+| **Static Analysis** | `very_good_analysis` |
+| **Demo Tooling** | `device_preview` |
 
 ## Getting Started
 
