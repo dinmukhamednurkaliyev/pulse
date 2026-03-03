@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - "lib/**"
+      - "packages/**"
       - "pubspec.yaml"
       - "web/**"
 
