@@ -16,14 +16,14 @@ class ProfilePage extends StatelessWidget {
         unawaited(profileController.loadProfile());
         return profileController;
       },
-      child: PageStandard(
+      child: PageLayout(
         appBar: const _ProfileHeader(),
         body: BlocBuilder<ProfileController, ProfileState>(
           builder: (context, state) {
             return switch (state) {
-              ProfileInitial() || ProfileLoading() => const StateLoading(),
+              ProfileInitial() || ProfileLoading() => const LoadingView(),
 
-              ProfileError(:final message) => StateError(
+              ProfileError(:final message) => ErrorView(
                 message: message,
                 onRetry: () => context.read<ProfileController>().loadProfile(),
               ),
@@ -85,7 +85,7 @@ class _ProfileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = context.color;
 
-    return DataScroll(
+    return ScrollColumn(
       children: [
         ProfileUserInfoSection(
           url: user.avatarUrl,

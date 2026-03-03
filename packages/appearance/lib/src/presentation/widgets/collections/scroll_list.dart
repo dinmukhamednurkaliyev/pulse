@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DataList<T> extends StatelessWidget {
-  const DataList({
+class ScrollList<T> extends StatelessWidget {
+  const ScrollList({
     required this.items,
     required this.itemBuilder,
     super.key,
