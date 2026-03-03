@@ -4,12 +4,7 @@ version: 1.0.0+1
 publish_to: none
 
 workspace:
-  - packages/infrastructure
-  - packages/appearance
-  - packages/localization
-  - packages/home
-  - packages/profile
-  - packages/session
+  - packages/*
 
 environment:
   sdk: ^3.11.0

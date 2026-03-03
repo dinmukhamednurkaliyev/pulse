@@ -1,0 +1,43 @@
+name: "Continuous Deployment / Demo"
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "lib/**"
+      - "pubspec.yaml"
+      - "web/**"
+
+jobs:
+  build-and-deploy-demo:
+    name: "Build & Deploy Showcase"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Repository: Checkout"
+        uses: actions/checkout@v6.0.2
+
+      - name: "Action: Flutter Setup"
+        uses: ./.github/actions/flutter_setup
+        with:
+          version: "3.41.2"
+          channel: "stable"
+
+      - name: "Flutter: Build Web Demo"
+        run: |
+          flutter build web --release \
+          --web-renderer canvaskit \
+          --base-href "/${{ github.event.repository.name }}/" \
+          --dart-define=IS_DEMO=true
+
+      - name: "Deploy: GitHub Pages"
+        uses: peaceiris/actions-gh-pages@v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_message: "docs: update showcase demo [skip ci]"

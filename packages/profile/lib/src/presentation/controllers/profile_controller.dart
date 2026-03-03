@@ -14,7 +14,8 @@ class ProfileController extends Cubit<ProfileState> {
           user: (
             name: 'Amber Doe Smith',
             address: '123 Main St, New York, USA',
-            avatarUrl: 'https://...',
+            avatarUrl:
+                'https://plus.unsplash.com/premium_photo-1664369473447-64172945caa0?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fGdpcmwlMjBwb3J0cmFpdCUyMHByb2Zlc3Npb25hbHxlbnwwfHwwfHx8MA%3D%3Dpor.webp',
           ),
           metrics: [
             ProfileMetricEntity(
