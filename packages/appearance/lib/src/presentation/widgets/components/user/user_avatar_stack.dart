@@ -1,8 +1,8 @@
 import 'package:appearance/appearance.dart';
 import 'package:flutter/material.dart';
 
-class UserAvatarGroup extends StatelessWidget {
-  const UserAvatarGroup({
+class UserAvatarStack extends StatelessWidget {
+  const UserAvatarStack({
     required this.urls,
     this.overlap = 8,
     this.limit = 5,
