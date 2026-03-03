@@ -2,8 +2,8 @@ import 'package:appearance/appearance.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class NavigationSlot extends StatelessWidget {
-  const NavigationSlot({
+class NavigationBarItem extends StatelessWidget {
+  const NavigationBarItem({
     required this.icon,
     required this.isSelected,
     required this.onTap,
@@ -71,7 +71,7 @@ class NavigationShell extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: items
                 .map(
-                  (item) => NavigationSlot(
+                  (item) => NavigationBarItem(
                     icon: item.icon,
                     isSelected: shell.currentIndex == item.index,
                     onTap: () => shell.goBranch(

@@ -16,14 +16,14 @@ class SessionPage extends StatelessWidget {
         unawaited(sessionController.loadSessions());
         return sessionController;
       },
-      child: PageStandard(
+      child: PageLayout(
         appBar: const _SessionHeader(),
         body: BlocBuilder<SessionController, SessionState>(
           builder: (context, state) {
             return switch (state) {
-              SessionInitial() || SessionLoading() => const StateLoading(),
+              SessionInitial() || SessionLoading() => const LoadingView(),
 
-              SessionError(:final message) => StateError(
+              SessionError(:final message) => ErrorView(
                 message: message,
                 onRetry: () => context.read<SessionController>().loadSessions(),
               ),
@@ -66,7 +66,7 @@ class _SessionBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = context.color;
 
-    return DataScroll(
+    return ScrollColumn(
       children: [
         SessionAvailableSection(
           sessions: sessions
