@@ -29,9 +29,9 @@ jobs:
       - name: "Flutter: Build Web Demo"
         run: |
           flutter build web --release \
-          --web-renderer canvaskit \
-          --base-href "/${{ github.event.repository.name }}/" \
-          --dart-define=IS_DEMO=true
+            --web-renderer canvaskit \
+            --base-href "/${{ github.event.repository.name }}/" \
+            --dart-define=IS_DEMO=true
 
       - name: "Deploy: GitHub Pages"
         uses: peaceiris/actions-gh-pages@v4.0.0
