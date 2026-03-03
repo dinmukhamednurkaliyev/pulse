@@ -1,10 +1,11 @@
 # Pulse
 
 ![coverage][coverage_badge]
-[![Deployment / Web Demo](https://github.com/dinmukhamednurkaliyev/pulse/actions/workflows/deployment_demo.yaml/badge.svg)]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
 [![GitHub stars][stars_badge]][repository_link]
+
+
 
 ## Contents
 1. [Overview](#overview)
@@ -54,22 +55,16 @@ It demonstrates professional-grade standards including:
 
 ## Preview
 
-<table align="center">
-  <tr>
-    <td align="center" width="300">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://dinmukhamednurkaliyev.github.io/pulse/&color=4338ca" width="180" alt="QR Code" />
-      <br />
-      <b>Scan to try on Mobile</b>
-    </td>
-    <td align="center" width="300">
-      <a href="https://dinmukhamednurkaliyev.github.io/pulse/">
-        <img src="https://img.shields.io/badge/Open_Web_Demo-4338ca?style=for-the-badge&logo=flutter&logoColor=white" alt="Open Web Demo" />
-      </a>
-      <br /><br />
-      <i>Running in browser with <br /><b>Device Preview</b> simulation</i>
-    </td>
-  </tr>
-</table>
+Experience the application directly in your browser or on a physical device.
+
+**[Launch Web Interactive Demo](https://dinmukhamednurkaliyev.github.io/pulse/)**
+
+> **Note**: The web demo uses `device_preview` to simulate a mobile environment. For the best experience, use a desktop browser.z
+
+---
+
+### Scan to Open
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://dinmukhamednurkaliyev.github.io/pulse/&color=4338ca&qzone=2" width="150" alt="Pulse QR Code" />
 
 ## Technologies
 | Category | Tools |
