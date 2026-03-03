@@ -56,18 +56,6 @@ jobs:
           version: "3.41.2"
           channel: "stable"
 
-      - name: "Create .env file for code generation"
-        run: |
-          echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" > packages/infrastructure/.env.development
-          echo "SUPABASE_ANONYMOUS_KEY=${{ secrets.SUPABASE_ANONYMOUS_KEY }}" >> packages/infrastructure/.env.development
-          echo "POWERSYNC_URL=${{ secrets.POWERSYNC_URL }}" >> packages/infrastructure/.env.development
-          echo "POWERSYNC_TOKEN=${{ secrets.POWERSYNC_TOKEN }}" >> packages/infrastructure/.env.development
-          echo "APPLICATION_NAME=${{ secrets.APPLICATION_NAME }}" >> packages/infrastructure/.env.development
-
-      - name: "Flutter: Generate Files"
-        run: |
-          melos run generate --no-select
-
       - name: "Flutter: Format Check"
         run: melos run format
 

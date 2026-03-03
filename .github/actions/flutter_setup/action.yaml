@@ -42,7 +42,7 @@ runs:
       run: |
         if ! command -v melos &> /dev/null; then
           echo "::group::Activating Melos"
-          dart pub global activate melos --quiet
+          dart pub global activate melos
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
           echo "::endgroup::"
         fi

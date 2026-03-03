@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class StateEmpty extends StatelessWidget {
-  const StateEmpty({
+class EmptyView extends StatelessWidget {
+  const EmptyView({
     super.key,
     this.title = 'Nothing found',
     this.message,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class StateError extends StatelessWidget {
-  const StateError({required this.message, super.key, this.onRetry});
+class ErrorView extends StatelessWidget {
+  const ErrorView({required this.message, super.key, this.onRetry});
   final String message;
   final VoidCallback? onRetry;
 

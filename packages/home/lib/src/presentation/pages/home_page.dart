@@ -16,13 +16,13 @@ class HomePage extends StatelessWidget {
         unawaited(controller.loadData());
         return controller;
       },
-      child: PageStandard(
+      child: PageLayout(
         appBar: const _HomeHeader(),
         body: BlocBuilder<HomeController, HomeState>(
           builder: (context, state) {
             return switch (state) {
-              HomeInitial() || HomeLoading() => const StateLoading(),
-              HomeError(:final message) => StateError(
+              HomeInitial() || HomeLoading() => const LoadingView(),
+              HomeError(:final message) => ErrorView(
                 message: message,
                 onRetry: () => context.read<HomeController>().loadData(),
               ),
@@ -81,7 +81,7 @@ class _HomeBody extends StatelessWidget {
     final color = context.color;
     final controller = context.read<HomeController>();
 
-    return DataScroll(
+    return ScrollColumn(
       children: [
         HomeDailyChallengeSection(
           challengeParticipants: state.challengeParticipants,

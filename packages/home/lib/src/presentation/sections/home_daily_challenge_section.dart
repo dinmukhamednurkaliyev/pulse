@@ -45,7 +45,7 @@ class HomeDailyChallengeSection extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    UserAvatarGroup(urls: challengeParticipants),
+                    UserAvatarStack(urls: challengeParticipants),
                   ],
                 ),
               ],

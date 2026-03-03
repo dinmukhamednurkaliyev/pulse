@@ -2,7 +2,7 @@ export 'src/domain/entities/profile_activity_item_entity.dart';
 export 'src/domain/entities/profile_metric_entity.dart';
 export 'src/presentation/controllers/profile_controller.dart';
 export 'src/presentation/controllers/profile_state.dart';
-export 'src/presentation/models/profile_activity_displaly_model.dart';
+export 'src/presentation/models/profile_activity_display_model.dart';
 export 'src/presentation/models/profile_metric_card_display_model.dart';
 export 'src/presentation/pages/profile_page.dart';
 export 'src/presentation/sections/profile_activity_section.dart';
