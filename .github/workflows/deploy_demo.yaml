@@ -4,13 +4,14 @@ permissions:
   contents: write
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
-      - "lib/**"
+      - "**/lib/**"
       - "packages/**"
-      - "pubspec.yaml"
+      - "**/pubspec.yaml"
       - "web/**"
 
 jobs:
