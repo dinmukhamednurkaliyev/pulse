@@ -8,6 +8,7 @@
 
 
 ## Contents
+
 1. [Overview](#overview)
 2. [Preview](#preview)
 3. [Features](#features)
@@ -18,6 +19,7 @@
 8. [License](#license)
 
 ## Overview
+
 This project serves as a production-ready blueprint for a modular Flutter application. While the UI focuses on fitness tracking essentials, the core objective was to engineer a highly decoupled, multi-package architecture capable of scaling to dozens of features without increasing technical debt.
 
 It demonstrates professional-grade standards including:
@@ -32,19 +34,25 @@ It demonstrates professional-grade standards including:
 
 ## Preview
 
-Experience the application directly in your browser or on a physical device.
+To evaluate the system implementation and UI responsiveness, use the following distribution channels
 
-**[Launch Web Interactive Demo](https://dinmukhamednurkaliyev.github.io/pulse/)**
+### Interactive Distribution
 
-> **Note**: The web demo uses `device_preview` to simulate a mobile environment. For the best experience, use a desktop browser.z
+| Environment | Access Method |
+| :--- | :--- |
+| **Web Interactive Sandbox** | [**Launch Web Distribution**](https://dinmukhamednurkaliyev.github.io/pulse/) |
+| **Physical Device Access** | ![QR Code](https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://dinmukhamednurkaliyev.github.io/pulse/&color=1e293b&qzone=2) |
 
----
+**Technical Specifications:**
+- **Web Distribution**: Leverages `device_preview` to simulate mobile-specific form factors and media queries within the browser.
+- **Recommendations**: For comprehensive instrumentation of the responsive layout, access the Web Sandbox via a desktop-class browser.
+- **QR Code**: Direct link to the hosted Flutter Web build for testing on physical mobile hardware.
 
-### Scan to Open
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://dinmukhamednurkaliyev.github.io/pulse/&color=4338ca&qzone=2" width="150" alt="Pulse QR Code" />
+### Visual Documentation
 
 
 ## Features
+
 ### Home
 - **Daily Challenges**: Gamified tasks to keep users motivated.
 - **Workout Schedule**: Easy-to-view timeline of planned activities.
@@ -59,6 +67,7 @@ Experience the application directly in your browser or on a physical device.
 - **User Management**: Personal details and preferences.
 
 ## Platform Availability
+
 | Platform | Readiness | Version |
 | :--- | :--- | :--- |
 | **Android** | **[ RELEASED ]** | v0.0.1 |
@@ -98,14 +107,17 @@ graph TD
 
 
 ### Key Technical Decisions
+
 | Decision | Rationale |
 | :--- | :--- |
 
 ### Engineering Challenges
+
 | Challenge | Solution |
 | :--- | :--- |
 
 ## Technologies
+
 | Category | Tools |
 | :--- | :--- |
 | **Language** | `dart` |
@@ -130,6 +142,7 @@ Ensure you have the following installed:
   ```
 
 ### Installation
+
 1. **Clone the repository**
    ```bash
    git clone https://github.com/dinmukhamednurkaliyev/pulse.git
@@ -149,6 +162,7 @@ Ensure you have the following installed:
    ```
 
 ## License
+
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 [coverage_badge]: coverage_badge.svg
