@@ -1,6 +1,7 @@
 # Pulse
 
 ![coverage][coverage_badge]
+[![Deployment / Web Demo](https://github.com/dinmukhamednurkaliyev/pulse/actions/workflows/deployment_demo.yaml/badge.svg)]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
 [![GitHub stars][stars_badge]][repository_link]
@@ -47,23 +48,41 @@ It demonstrates professional-grade standards including:
 | :--- | :--- | :--- |
 | **Android** | **[ RELEASED ]** | v0.0.1 |
 | **iOS** | **[ PLANNED ]** | -- |
-| **Web** | **[ PLANNED ]** | -- |
+| **Web** | **[ DEMO LIVE ]** | [**Open Demo**](https://dinmukhamednurkaliyev.github.io/pulse/) |
 | **Windows** | **[ PLANNED ]** | -- |
 | **Linux** | **[ PLANNED ]** | -- |
 
 ## Preview
+
+<table align="center">
+  <tr>
+    <td align="center" width="300">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://dinmukhamednurkaliyev.github.io/pulse/&color=4338ca" width="180" alt="QR Code" />
+      <br />
+      <b>Scan to try on Mobile</b>
+    </td>
+    <td align="center" width="300">
+      <a href="https://dinmukhamednurkaliyev.github.io/pulse/">
+        <img src="https://img.shields.io/badge/Open_Web_Demo-4338ca?style=for-the-badge&logo=flutter&logoColor=white" alt="Open Web Demo" />
+      </a>
+      <br /><br />
+      <i>Running in browser with <br /><b>Device Preview</b> simulation</i>
+    </td>
+  </tr>
+</table>
 
 ## Technologies
 | Category | Tools |
 | :--- | :--- |
 | **Language** | `dart` |
 | **Framework** | `flutter` |
-| **Package Manager** | `melos` |
+| **Workflow Automation** | `melos` |
 | **State Management** | `bloc`, `flutter_bloc` |
 | **Navigation** | `go_router` |
 | **Local Persistence** | `hive`, `hive_flutter` |
 | **Vector Animations** | `rive` |
 | **Static Analysis** | `very_good_analysis` |
+| **Demo Tooling** | `device_preview` |
 
 ## Architecture
 
