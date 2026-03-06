@@ -1,3 +1,4 @@
+import 'package:appearance/src/presentation/appearance_system.dart';
 import 'package:flutter/material.dart';
 
 class EmptyView extends StatelessWidget {
@@ -17,11 +18,12 @@ class EmptyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final style = context.style;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 64, color: Colors.grey),
+          Icon(icon, size: 64, color: style.color.iconGrey),
           const SizedBox(height: 16),
           Text(
             title,
@@ -32,7 +34,7 @@ class EmptyView extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               message!,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: style.typography.bodyMedium,
               textAlign: TextAlign.center,
             ),
           ],

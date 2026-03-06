@@ -15,27 +15,26 @@ class HomeSearchButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
-    final radius = context.radius;
+    final style = context.style;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: size,
         height: size,
         decoration: BoxDecoration(
-          color: color.backgroundPrimary,
-          borderRadius: BorderRadius.circular(radius.xs),
+          color: style.color.backgroundPrimary,
+          borderRadius: BorderRadius.circular(style.layout.xs),
           boxShadow: [
             BoxShadow(
-              color: color.shadowLight,
-              blurRadius: radius.xs,
+              color: style.color.shadowLight,
+              blurRadius: style.layout.xs,
               offset: const Offset(0, 2),
             ),
           ],
         ),
         child: Icon(
           Icons.search,
-          color: color.iconGrey,
+          color: style.color.iconGrey,
           size: iconSize,
         ),
       ),

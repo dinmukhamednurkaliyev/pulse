@@ -1,10 +1,13 @@
 export 'package:rive/rive.dart';
 
-export 'src/presentation/theme.dart';
-export 'src/presentation/tokens/color_token.dart';
-export 'src/presentation/tokens/radius_token.dart';
-export 'src/presentation/tokens/spacing_token.dart';
-export 'src/presentation/tokens/text_token.dart';
+export 'src/presentation/appearance_system.dart';
+export 'src/presentation/application_theme.dart';
+export 'src/presentation/primitives/color_primitives.dart';
+export 'src/presentation/primitives/layout_primitives.dart';
+export 'src/presentation/primitives/typography_primitives.dart';
+export 'src/presentation/tokens/color_tokens.dart';
+export 'src/presentation/tokens/layout_tokens.dart';
+export 'src/presentation/tokens/typography_tokens.dart';
 export 'src/presentation/widgets/collections/scroll_column.dart';
 export 'src/presentation/widgets/collections/scroll_list.dart';
 export 'src/presentation/widgets/components/navigation/navigation_app_bar.dart';

@@ -1,33 +1,9 @@
+import 'package:appearance/src/presentation/primitives/typography_primitives.dart';
 import 'package:flutter/material.dart';
 
-class _TextPrimitive {
-  const _TextPrimitive._();
-
-  static const fontFamily = 'Inter';
-  static const TextLeadingDistribution leading =
-      TextLeadingDistribution.proportional;
-
-  static const FontWeight regular = FontWeight.w400;
-  static const FontWeight medium = FontWeight.w500;
-  static const FontWeight semiBold = FontWeight.w600;
-  static const FontWeight bold = FontWeight.w700;
-
-  static const double s11 = 11;
-  static const double s12 = 12;
-  static const double s14 = 14;
-  static const double s16 = 16;
-  static const double s22 = 22;
-  static const double s24 = 24;
-  static const double s28 = 28;
-  static const double s32 = 32;
-  static const double s36 = 36;
-  static const double s45 = 45;
-  static const double s57 = 57;
-}
-
 @immutable
-class SemanticText extends ThemeExtension<SemanticText> {
-  const SemanticText({
+final class TypographyTokens extends ThemeExtension<TypographyTokens> {
+  const TypographyTokens._({
     required this.displayLarge,
     required this.displayMedium,
     required this.displaySmall,
@@ -61,129 +37,129 @@ class SemanticText extends ThemeExtension<SemanticText> {
   final TextStyle labelMedium;
   final TextStyle labelSmall;
 
-  static const regular = SemanticText(
+  static const regular = TypographyTokens._(
     displayLarge: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s57,
-      fontWeight: _TextPrimitive.regular,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s57,
+      fontWeight: TypographyPrimitives.regular,
       height: 1.12,
       letterSpacing: -0.25,
     ),
     displayMedium: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s45,
-      fontWeight: _TextPrimitive.regular,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s45,
+      fontWeight: TypographyPrimitives.regular,
       height: 1.15,
     ),
     displaySmall: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s36,
-      fontWeight: _TextPrimitive.regular,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s36,
+      fontWeight: TypographyPrimitives.regular,
       height: 1.22,
     ),
 
     headlineLarge: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s32,
-      fontWeight: _TextPrimitive.semiBold,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s32,
+      fontWeight: TypographyPrimitives.semiBold,
       height: 1.25,
     ),
     headlineMedium: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s28,
-      fontWeight: _TextPrimitive.semiBold,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s28,
+      fontWeight: TypographyPrimitives.semiBold,
       height: 1.28,
     ),
     headlineSmall: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s24,
-      fontWeight: _TextPrimitive.semiBold,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s24,
+      fontWeight: TypographyPrimitives.semiBold,
       height: 1.33,
     ),
 
     titleLarge: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s22,
-      fontWeight: _TextPrimitive.bold,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s22,
+      fontWeight: TypographyPrimitives.bold,
       height: 1.27,
     ),
     titleMedium: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s16,
-      fontWeight: _TextPrimitive.bold,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s16,
+      fontWeight: TypographyPrimitives.bold,
       height: 1.5,
       letterSpacing: 0.15,
     ),
     titleSmall: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s14,
-      fontWeight: _TextPrimitive.bold,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s14,
+      fontWeight: TypographyPrimitives.bold,
       height: 1.43,
       letterSpacing: 0.1,
     ),
 
     bodyLarge: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s16,
-      fontWeight: _TextPrimitive.medium,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s16,
+      fontWeight: TypographyPrimitives.medium,
       height: 1.5,
       letterSpacing: 0.5,
     ),
     bodyMedium: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s14,
-      fontWeight: _TextPrimitive.medium,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s14,
+      fontWeight: TypographyPrimitives.medium,
       height: 1.43,
       letterSpacing: 0.25,
     ),
     bodySmall: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s12,
-      fontWeight: _TextPrimitive.medium,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s12,
+      fontWeight: TypographyPrimitives.medium,
       height: 1.33,
       letterSpacing: 0.4,
     ),
 
     labelLarge: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s14,
-      fontWeight: _TextPrimitive.semiBold,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s14,
+      fontWeight: TypographyPrimitives.semiBold,
       height: 1.43,
       letterSpacing: 0.1,
     ),
     labelMedium: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s12,
-      fontWeight: _TextPrimitive.semiBold,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s12,
+      fontWeight: TypographyPrimitives.semiBold,
       height: 1.33,
       letterSpacing: 0.5,
     ),
     labelSmall: TextStyle(
-      fontFamily: _TextPrimitive.fontFamily,
-      leadingDistribution: _TextPrimitive.leading,
-      fontSize: _TextPrimitive.s11,
-      fontWeight: _TextPrimitive.semiBold,
+      fontFamily: TypographyPrimitives.fontFamily,
+      leadingDistribution: TypographyPrimitives.leading,
+      fontSize: TypographyPrimitives.s11,
+      fontWeight: TypographyPrimitives.semiBold,
       height: 1.45,
       letterSpacing: 0.5,
     ),
   );
 
   @override
-  ThemeExtension<SemanticText> copyWith({
+  ThemeExtension<TypographyTokens> copyWith({
     TextStyle? displayLarge,
     TextStyle? displayMedium,
     TextStyle? displaySmall,
@@ -200,7 +176,7 @@ class SemanticText extends ThemeExtension<SemanticText> {
     TextStyle? labelMedium,
     TextStyle? labelSmall,
   }) {
-    return SemanticText(
+    return TypographyTokens._(
       displayLarge: displayLarge ?? this.displayLarge,
       displayMedium: displayMedium ?? this.displayMedium,
       displaySmall: displaySmall ?? this.displaySmall,
@@ -220,12 +196,12 @@ class SemanticText extends ThemeExtension<SemanticText> {
   }
 
   @override
-  ThemeExtension<SemanticText> lerp(
-    covariant ThemeExtension<SemanticText>? other,
+  ThemeExtension<TypographyTokens> lerp(
+    covariant ThemeExtension<TypographyTokens>? other,
     double t,
   ) {
-    if (other is! SemanticText) return this;
-    return SemanticText(
+    if (other is! TypographyTokens) return this;
+    return TypographyTokens._(
       displayLarge: TextStyle.lerp(displayLarge, other.displayLarge, t)!,
       displayMedium: TextStyle.lerp(displayMedium, other.displayMedium, t)!,
       displaySmall: TextStyle.lerp(displaySmall, other.displaySmall, t)!,
@@ -245,7 +221,7 @@ class SemanticText extends ThemeExtension<SemanticText> {
   }
 }
 
-extension TextExtension on TextStyle {
+extension TypographyExtension on TextStyle {
   TextStyle withColor(Color color) => copyWith(color: color);
   TextStyle withHeight(double height) => copyWith(height: height);
   TextStyle get regular => copyWith(fontWeight: FontWeight.w400);

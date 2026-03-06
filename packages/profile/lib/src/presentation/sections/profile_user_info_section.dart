@@ -17,12 +17,9 @@ class ProfileUserInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final text = context.text;
-    final color = context.color;
-    final radius = context.radius;
+    final style = context.style;
     return Row(
-      spacing: spacing.sm,
+      spacing: style.layout.sm,
       children: [
         UserAvatar(
           url: url,
@@ -35,23 +32,31 @@ class ProfileUserInfoSection extends StatelessWidget {
             children: [
               Text(
                 name,
-                style: text.titleLarge.withColor(color.textPrimary),
+                style: style.typography.titleLarge.withColor(
+                  style.color.textPrimary,
+                ),
               ),
-              SizedBox(height: spacing.xxxs),
+              SizedBox(height: style.layout.xxxs),
               Text(
                 address,
-                style: text.titleSmall.withColor(color.textSecondary),
+                style: style.typography.titleSmall.withColor(
+                  style.color.textSecondary,
+                ),
               ),
               Row(
-                spacing: spacing.sm,
+                spacing: style.layout.sm,
                 children: [
                   Text(
                     'Followers 72',
-                    style: text.bodyMedium.withColor(color.textPrimary),
+                    style: style.typography.bodyMedium.withColor(
+                      style.color.textPrimary,
+                    ),
                   ),
                   Text(
                     'Following 162',
-                    style: text.bodyMedium.withColor(color.textPrimary),
+                    style: style.typography.bodyMedium.withColor(
+                      style.color.textPrimary,
+                    ),
                   ),
                 ],
               ),
@@ -59,18 +64,18 @@ class ProfileUserInfoSection extends StatelessWidget {
           ),
         ),
         Column(
-          spacing: spacing.xxxs,
+          spacing: style.layout.xxxs,
           children: [
             Container(
               width: 36,
               height: 36,
               decoration: BoxDecoration(
-                color: color.iconLightGrey.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(radius.sm),
+                color: style.color.iconLightGrey.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(style.layout.sm),
               ),
               child: Icon(
                 Icons.share,
-                color: color.iconGrey,
+                color: style.color.iconGrey,
                 size: 18,
               ),
             ),
@@ -78,12 +83,12 @@ class ProfileUserInfoSection extends StatelessWidget {
               width: 36,
               height: 36,
               decoration: BoxDecoration(
-                color: color.iconLightGrey.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(radius.sm),
+                color: style.color.iconLightGrey.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(style.layout.sm),
               ),
               child: Icon(
                 Icons.edit,
-                color: color.iconGrey,
+                color: style.color.iconGrey,
                 size: 18,
               ),
             ),

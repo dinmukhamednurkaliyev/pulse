@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 @immutable
-final class ProfileActivityItemDisplayModel {
-  const ProfileActivityItemDisplayModel({
+final class ProfileActivityItemViewModel {
+  const ProfileActivityItemViewModel({
     required this.title,
     required this.subtitle,
     required this.icon,
@@ -14,7 +14,7 @@ final class ProfileActivityItemDisplayModel {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ProfileActivityItemDisplayModel &&
+      other is ProfileActivityItemViewModel &&
           runtimeType == other.runtimeType &&
           title == other.title &&
           subtitle == other.subtitle &&

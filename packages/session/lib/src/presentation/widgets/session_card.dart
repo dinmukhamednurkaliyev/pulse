@@ -5,10 +5,10 @@ import 'package:session/session.dart';
 class SessionCard extends StatelessWidget {
   const SessionCard({required this.session, required this.onTap, super.key});
 
-  final SessionCardDisplayModel session;
+  final SessionCardViewModel session;
   final VoidCallback onTap;
 
-  Color _getDifficultyColor(SemanticColor color, String difficulty) {
+  Color _getDifficultyColor(ColorTokens color, String difficulty) {
     switch (difficulty.toLowerCase()) {
       case 'easy':
         return color.difficultyEasy;
@@ -23,58 +23,62 @@ class SessionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final color = context.color;
-    final radius = context.radius;
-    final text = context.text;
-    final difficultyColor = _getDifficultyColor(color, session.difficulty);
+    final style = context.style;
+    final difficultyColor = _getDifficultyColor(
+      style.color,
+      session.difficulty,
+    );
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(spacing.md),
+        padding: EdgeInsets.all(style.layout.md),
         decoration: BoxDecoration(
-          color: color.backgroundWhite,
-          borderRadius: BorderRadius.circular(radius.xxxs),
+          color: style.color.backgroundWhite,
+          borderRadius: BorderRadius.circular(style.layout.xxxs),
           border: Border.all(
-            color: color.backgroundWhite,
+            color: style.color.backgroundWhite,
             width: 2,
           ),
         ),
         child: Row(
-          spacing: spacing.sm,
+          spacing: style.layout.sm,
           children: [
             Container(
               width: 4,
               height: 80,
               decoration: BoxDecoration(
                 color: session.backgroundColor,
-                borderRadius: BorderRadius.circular(radius.xxxs),
+                borderRadius: BorderRadius.circular(style.layout.xxxs),
               ),
             ),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: spacing.sm,
+                spacing: style.layout.sm,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         session.title,
-                        style: text.bodyLarge.withColor(color.textPrimary),
+                        style: style.typography.bodyLarge.withColor(
+                          style.color.textPrimary,
+                        ),
                       ),
                       Container(
                         padding: EdgeInsets.symmetric(
-                          horizontal: spacing.xxxs,
-                          vertical: spacing.xxxs,
+                          horizontal: style.layout.xxxs,
+                          vertical: style.layout.xxxs,
                         ),
                         decoration: BoxDecoration(
                           color: difficultyColor.withValues(alpha: 0.1),
-                          borderRadius: BorderRadius.circular(spacing.xxxs),
+                          borderRadius: BorderRadius.circular(
+                            style.layout.xxxs,
+                          ),
                         ),
                         child: Text(
                           session.difficulty,
-                          style: text.bodySmall.withColor(
+                          style: style.typography.bodySmall.withColor(
                             difficultyColor,
                           ),
                         ),
@@ -83,14 +87,18 @@ class SessionCard extends StatelessWidget {
                   ),
                   Text(
                     'Trainer: ${session.trainerName}',
-                    style: text.bodySmall.withColor(color.textSecondary),
+                    style: style.typography.bodySmall.withColor(
+                      style.color.textSecondary,
+                    ),
                   ),
                   Text(
                     session.description,
-                    style: text.bodySmall.withColor(color.textSecondary),
+                    style: style.typography.bodySmall.withColor(
+                      style.color.textSecondary,
+                    ),
                   ),
                   Row(
-                    spacing: spacing.xxs,
+                    spacing: style.layout.xxs,
                     children: [
                       _InfoChip(
                         icon: Icons.access_time,
@@ -110,7 +118,7 @@ class SessionCard extends StatelessWidget {
               height: 32,
               decoration: BoxDecoration(
                 color: session.backgroundColor.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(radius.sm),
+                borderRadius: BorderRadius.circular(style.layout.sm),
               ),
               child: Icon(
                 Icons.arrow_forward_ios,
@@ -133,15 +141,18 @@ class _InfoChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final color = context.color;
-    final text = context.text;
+    final style = context.style;
     return Row(
       mainAxisSize: MainAxisSize.min,
-      spacing: spacing.xxxs,
+      spacing: style.layout.xxxs,
       children: [
-        Icon(icon, size: 16, color: color.textSecondary),
-        Text(title, style: text.bodySmall.withColor(color.textSecondary)),
+        Icon(icon, size: 16, color: style.color.textSecondary),
+        Text(
+          title,
+          style: style.typography.bodySmall.withColor(
+            style.color.textSecondary,
+          ),
+        ),
       ],
     );
   }

@@ -14,8 +14,7 @@ class HomeUserGreeting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
-    final text = context.text;
+    final style = context.style;
     final date = _dateFormatter.format(DateTime.now());
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,11 +22,15 @@ class HomeUserGreeting extends StatelessWidget {
       children: [
         Text(
           'Hello, $name',
-          style: text.titleMedium.withColor(color.textPrimary),
+          style: style.typography.titleMedium.withColor(
+            style.color.textPrimary,
+          ),
         ),
         Text(
           'Today $date',
-          style: text.bodyMedium.withColor(color.textSecondary),
+          style: style.typography.bodyMedium.withColor(
+            style.color.textSecondary,
+          ),
         ),
       ],
     );

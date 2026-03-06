@@ -8,27 +8,27 @@ class SessionAvailableSection extends StatelessWidget {
     super.key,
   });
 
-  final List<SessionCardDisplayModel> sessions;
+  final List<SessionCardViewModel> sessions;
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final text = context.text;
-    final color = context.color;
+    final style = context.style;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: spacing.sm,
+      spacing: style.layout.sm,
       children: [
         Text(
           'Available Sessions',
-          style: text.headlineSmall.withColor(color.textPrimary),
+          style: style.typography.headlineSmall.withColor(
+            style.color.textPrimary,
+          ),
         ),
         Text(
           'Choose your workout session',
-          style: text.bodyLarge.withColor(color.textPrimary),
+          style: style.typography.bodyLarge.withColor(style.color.textPrimary),
         ),
         Column(
-          spacing: spacing.sm,
+          spacing: style.layout.sm,
           children: sessions
               .map(
                 (item) => SessionCard(

@@ -47,12 +47,11 @@ class _SessionHeader extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
-    final text = context.text;
+    final style = context.style;
     return NavigationAppBar(
       title: Text(
         'Sessions',
-        style: text.titleLarge.withColor(color.textPrimary),
+        style: style.typography.titleLarge.withColor(style.color.textPrimary),
       ),
     );
   }
@@ -64,14 +63,14 @@ class _SessionBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
+    final style = context.style;
 
     return ScrollColumn(
       children: [
         SessionAvailableSection(
           sessions: sessions
               .map(
-                (session) => SessionCardDisplayModel(
+                (session) => SessionCardViewModel(
                   title: session.title,
                   trainerName: session.trainerName,
                   difficulty: session.difficulty,
@@ -79,10 +78,10 @@ class _SessionBody extends StatelessWidget {
                   calories: session.calories,
                   description: session.description,
                   backgroundColor: switch (session.category) {
-                    SessionCategory.yoga ||
-                    SessionCategory.strength => color.cardBackgroundYellow,
+                    SessionCategory.yoga || SessionCategory.strength =>
+                      style.color.cardBackgroundYellow,
                     SessionCategory.balance ||
-                    SessionCategory.cardio => color.cardBackgroundBlue,
+                    SessionCategory.cardio => style.color.cardBackgroundBlue,
                   },
                 ),
               )

@@ -1,4 +1,4 @@
-import 'package:appearance/appearance.dart';
+import 'package:appearance/src/presentation/appearance_system.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,7 +15,7 @@ class NavigationBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
+    final style = context.style;
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
@@ -23,12 +23,14 @@ class NavigationBarItem extends StatelessWidget {
         width: 56,
         height: 56,
         decoration: BoxDecoration(
-          color: isSelected ? color.backgroundWhite : Colors.transparent,
+          color: isSelected ? style.color.backgroundWhite : Colors.transparent,
           shape: BoxShape.circle,
         ),
         child: Icon(
           icon,
-          color: isSelected ? color.backgroundBlack : color.backgroundWhite,
+          color: isSelected
+              ? style.color.backgroundBlack
+              : style.color.backgroundWhite,
           size: 24,
         ),
       ),
@@ -47,9 +49,7 @@ class NavigationShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
-    final spacing = context.spacing;
-    final radius = context.radius;
+    final style = context.style;
 
     return Scaffold(
       body: shell,
@@ -57,15 +57,15 @@ class NavigationShell extends StatelessWidget {
         height: 100,
         child: Container(
           margin: EdgeInsets.fromLTRB(
-            spacing.xxl,
-            spacing.xxs,
-            spacing.xxl,
-            spacing.xxl,
+            style.layout.xxl,
+            style.layout.xxs,
+            style.layout.xxl,
+            style.layout.xxl,
           ),
-          padding: EdgeInsets.symmetric(vertical: spacing.xxs),
+          padding: EdgeInsets.symmetric(vertical: style.layout.xxs),
           decoration: BoxDecoration(
-            color: color.bottomNavigationBackground,
-            borderRadius: BorderRadius.circular(radius.xxxl),
+            color: style.color.bottomNavigationBackground,
+            borderRadius: BorderRadius.circular(style.layout.xxxl),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

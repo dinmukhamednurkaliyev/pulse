@@ -5,13 +5,13 @@ import 'package:profile/profile.dart';
 class ProfileMetricSection extends StatelessWidget {
   const ProfileMetricSection({required this.metrics, super.key});
 
-  final List<ProfileMetricCardDisplayModel> metrics;
+  final List<ProfileMetricCardViewModel> metrics;
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
+    final style = context.style;
     return Row(
-      spacing: spacing.md,
+      spacing: style.layout.md,
       children: metrics
           .map(
             (item) => Expanded(

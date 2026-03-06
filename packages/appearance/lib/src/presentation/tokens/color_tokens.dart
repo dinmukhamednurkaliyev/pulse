@@ -1,35 +1,9 @@
+import 'package:appearance/src/presentation/primitives/color_primitives.dart';
 import 'package:flutter/material.dart';
 
-class _PrimitiveColor {
-  const _PrimitiveColor();
-
-  static const Color grey50 = Color(0xFFF2EEF9);
-  //static const Color grey100 = Color(0xFFF0F0F0);
-  static const Color grey200 = Color(0xFFF0EBF7);
-  //static const Color grey300 = Color(0xFFE0E0E0);
-  static const Color grey400 = Color(0xFFE8E2F3);
-  //static const Color grey500 = Color(0xFFCCCCCC);
-  static const Color grey600 = Color(0x4D999999);
-  static const Color grey700 = Color(0xFF666666);
-  static const Color grey800 = Color(0xFF1A1A1A);
-  static const Color grey900 = Color(0xFF0F1115);
-
-  static const Color opacity04 = Color(0x0A000000);
-  static const Color opacity10 = Color(0x1A000000);
-  static const Color opacity20 = Color(0x33000000);
-
-  static const Color blue100 = Color(0xFFBBD2FF);
-  static const Color yellow400 = Color(0xFFFFC85D);
-  static const Color green100 = Color(0xFFCFF2D8);
-  static const Color orange100 = Color(0xFFFFEED6);
-  static const Color orange700 = Color(0xFFFF6B35);
-  static const Color red400 = Color(0xFFFF6B6B);
-  static const Color teal400 = Color(0xFF4ECDC4);
-}
-
 @immutable
-class SemanticColor extends ThemeExtension<SemanticColor> {
-  const SemanticColor({
+final class ColorTokens extends ThemeExtension<ColorTokens> {
+  const ColorTokens._({
     required this.iconGrey,
     required this.iconLightGrey,
     required this.borderGrey,
@@ -63,24 +37,24 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
     required this.backgroundWhite,
   });
 
-  static const regular = SemanticColor(
-    text: _PrimitiveColor.grey900,
+  static const light = ColorTokens._(
+    text: ColorPrimitives.grey900,
     textWhite: Colors.white,
-    textPrimary: _PrimitiveColor.grey800,
-    textSecondary: _PrimitiveColor.grey700,
-    backgroundPrimary: _PrimitiveColor.grey50,
+    textPrimary: ColorPrimitives.grey800,
+    textSecondary: ColorPrimitives.grey700,
+    backgroundPrimary: ColorPrimitives.grey50,
     backgroundBlack: Colors.black,
     backgroundWhite: Colors.white,
-    cardBackgroundBlue: _PrimitiveColor.blue100,
-    cardBackgroundOrange: _PrimitiveColor.orange700,
-    cardBackgroundRed: _PrimitiveColor.red400,
-    cardBackgroundTeal: _PrimitiveColor.teal400,
-    cardBackgroundYellow: _PrimitiveColor.yellow400,
-    pillGreen: _PrimitiveColor.green100,
-    pillOrange: _PrimitiveColor.orange100,
-    metricBackgroundGreen: _PrimitiveColor.green100,
-    metricBackgroundBlue: _PrimitiveColor.blue100,
-    metricBackgroundOrange: _PrimitiveColor.orange100,
+    cardBackgroundBlue: ColorPrimitives.blue100,
+    cardBackgroundOrange: ColorPrimitives.orange700,
+    cardBackgroundRed: ColorPrimitives.red400,
+    cardBackgroundTeal: ColorPrimitives.teal400,
+    cardBackgroundYellow: ColorPrimitives.yellow400,
+    pillGreen: ColorPrimitives.green100,
+    pillOrange: ColorPrimitives.orange100,
+    metricBackgroundGreen: ColorPrimitives.green100,
+    metricBackgroundBlue: ColorPrimitives.blue100,
+    metricBackgroundOrange: ColorPrimitives.orange100,
     bottomNavigationBackground: Colors.black,
     difficultyEasy: Colors.green,
     difficultyMedium: Colors.orange,
@@ -88,13 +62,13 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
     socialBlue: Colors.blue,
     socialPink: Colors.pink,
     socialRed: Colors.red,
-    shadowDark: _PrimitiveColor.opacity04,
-    shadowLight: _PrimitiveColor.opacity10,
-    shadowMedium: _PrimitiveColor.opacity20,
-    borderGrey: _PrimitiveColor.grey400,
-    borderLight: _PrimitiveColor.grey50,
-    iconGrey: _PrimitiveColor.grey700,
-    iconLightGrey: _PrimitiveColor.grey600,
+    shadowDark: ColorPrimitives.opacity04,
+    shadowLight: ColorPrimitives.opacity10,
+    shadowMedium: ColorPrimitives.opacity20,
+    borderGrey: ColorPrimitives.grey400,
+    borderLight: ColorPrimitives.grey50,
+    iconGrey: ColorPrimitives.grey700,
+    iconLightGrey: ColorPrimitives.grey600,
   );
 
   final Color backgroundPrimary;
@@ -130,7 +104,7 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
   final Color iconLightGrey;
 
   @override
-  ThemeExtension<SemanticColor> copyWith({
+  ThemeExtension<ColorTokens> copyWith({
     Color? backgroundPrimary,
     Color? backgroundBlack,
     Color? backgroundWhite,
@@ -165,7 +139,7 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
     Color? iconGrey,
     Color? iconLightGrey,
   }) {
-    return SemanticColor(
+    return ColorTokens._(
       backgroundPrimary: backgroundPrimary ?? this.backgroundPrimary,
       backgroundBlack: backgroundBlack ?? this.backgroundBlack,
       backgroundWhite: backgroundWhite ?? this.backgroundWhite,
@@ -204,12 +178,12 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
   }
 
   @override
-  ThemeExtension<SemanticColor> lerp(
-    covariant ThemeExtension<SemanticColor>? other,
+  ThemeExtension<ColorTokens> lerp(
+    covariant ThemeExtension<ColorTokens>? other,
     double t,
   ) {
-    if (other is! SemanticColor) return this;
-    return SemanticColor(
+    if (other is! ColorTokens) return this;
+    return ColorTokens._(
       backgroundPrimary:
           Color.lerp(backgroundPrimary, other.backgroundPrimary, t) ??
           backgroundPrimary,
@@ -280,17 +254,17 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
   }
 }
 
-class SemanticGradient extends ThemeExtension<SemanticGradient> {
-  const SemanticGradient({
+class GradientTokens extends ThemeExtension<GradientTokens> {
+  const GradientTokens({
     required this.challengeCard,
   });
-  static const regular = SemanticGradient(
+  static const regular = GradientTokens(
     challengeCard: LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: [
-        _PrimitiveColor.grey400,
-        _PrimitiveColor.grey200,
+        ColorPrimitives.grey400,
+        ColorPrimitives.grey200,
       ],
     ),
   );
@@ -298,21 +272,21 @@ class SemanticGradient extends ThemeExtension<SemanticGradient> {
   final Gradient challengeCard;
 
   @override
-  ThemeExtension<SemanticGradient> copyWith({
+  ThemeExtension<GradientTokens> copyWith({
     Gradient? challengeCard,
   }) {
-    return SemanticGradient(
+    return GradientTokens(
       challengeCard: challengeCard ?? this.challengeCard,
     );
   }
 
   @override
-  ThemeExtension<SemanticGradient> lerp(
-    covariant ThemeExtension<SemanticGradient>? other,
+  ThemeExtension<GradientTokens> lerp(
+    covariant ThemeExtension<GradientTokens>? other,
     double t,
   ) {
-    if (other is! SemanticGradient) return this;
-    return SemanticGradient(
+    if (other is! GradientTokens) return this;
+    return GradientTokens(
       challengeCard:
           Gradient.lerp(challengeCard, other.challengeCard, t) ?? challengeCard,
     );

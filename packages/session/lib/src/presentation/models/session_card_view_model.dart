@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 @immutable
-final class SessionCardDisplayModel {
-  const SessionCardDisplayModel({
+final class SessionCardViewModel {
+  const SessionCardViewModel({
     required this.backgroundColor,
     required this.calories,
     required this.description,
@@ -22,7 +22,7 @@ final class SessionCardDisplayModel {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is SessionCardDisplayModel &&
+      other is SessionCardViewModel &&
           runtimeType == other.runtimeType &&
           backgroundColor == other.backgroundColor &&
           calories == other.calories &&
