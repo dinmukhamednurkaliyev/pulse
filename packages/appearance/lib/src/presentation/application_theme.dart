@@ -4,38 +4,6 @@ import 'package:appearance/src/presentation/tokens/typography_tokens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// TODO: Remove this class
-ThemeData buildTheme() {
-  final base = ThemeData(
-    useMaterial3: true,
-    colorSchemeSeed: ColorTokens.light.cardBackgroundBlue,
-    textTheme: const TextTheme(),
-    extensions: const <ThemeExtension<dynamic>>[
-      TypographyTokens.regular,
-      ColorTokens.light,
-      GradientTokens.regular,
-      LayoutTokens.regular,
-    ],
-  );
-
-  return base.copyWith(
-    scaffoldBackgroundColor: ColorTokens.light.backgroundPrimary,
-    textTheme: base.textTheme.apply(
-      bodyColor: ColorTokens.light.textPrimary,
-      displayColor: ColorTokens.light.textPrimary,
-    ),
-    cardTheme: CardThemeData(
-      elevation: 10,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(LayoutTokens.regular.md),
-        ),
-      ),
-    ),
-  );
-}
-
-// TODO: Use this class to build themes
 abstract final class ApplicationTheme {
   const ApplicationTheme._();
 
@@ -90,7 +58,7 @@ abstract final class ApplicationTheme {
       textTheme: _buildMaterialTextTheme(base.textTheme, typography, colors),
 
       cardTheme: CardThemeData(
-        elevation: 0,
+        elevation: 10,
         color: colors.backgroundWhite,
         surfaceTintColor: Colors.transparent,
         shape: RoundedRectangleBorder(
