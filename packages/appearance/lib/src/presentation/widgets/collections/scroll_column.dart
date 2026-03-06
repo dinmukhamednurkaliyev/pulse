@@ -20,11 +20,12 @@ class ScrollColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final style = context.style;
     return SingleChildScrollView(
       controller: controller,
       physics: physics ?? const BouncingScrollPhysics(),
       child: Column(
-        spacing: spacing ?? context.spacing.md,
+        spacing: spacing ?? style.layout.md,
         mainAxisSize: shrinkWrap ? MainAxisSize.min : MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: children,

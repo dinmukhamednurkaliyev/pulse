@@ -5,13 +5,13 @@ import 'package:profile/profile.dart';
 class ProfileActivitySection extends StatelessWidget {
   const ProfileActivitySection({required this.activities, super.key});
 
-  final List<ProfileActivityItemDisplayModel> activities;
+  final List<ProfileActivityItemViewModel> activities;
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
+    final style = context.style;
     return Column(
-      spacing: spacing.sm,
+      spacing: style.layout.sm,
       children: activities
           .map(
             (item) => ActivityItem(

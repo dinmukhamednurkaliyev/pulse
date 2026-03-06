@@ -12,18 +12,17 @@ class HomeSocialMediaSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final radius = context.radius;
+    final style = context.style;
 
     return Container(
-      padding: EdgeInsets.all(spacing.sm),
+      padding: EdgeInsets.all(style.layout.sm),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(radius.sm),
+        borderRadius: BorderRadius.circular(style.layout.sm),
       ),
       child: Wrap(
         alignment: WrapAlignment.center,
-        spacing: spacing.md,
-        runSpacing: spacing.sm,
+        spacing: style.layout.md,
+        runSpacing: style.layout.sm,
         children: socials.map((data) {
           return SocialMediaCard(
             social: data,

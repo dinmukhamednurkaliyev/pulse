@@ -16,9 +16,7 @@ class HomeScheduleSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final color = context.color;
-    final radius = context.radius;
+    final style = context.style;
 
     final effectiveStartDate =
         startDate ??
@@ -38,19 +36,19 @@ class HomeScheduleSection extends StatelessWidget {
           return GestureDetector(
             onTap: () => onDateSelected(date),
             child: Container(
-              width: spacing.xxl + spacing.sm,
-              margin: EdgeInsets.only(right: spacing.xxxs),
+              width: style.layout.xxl + style.layout.sm,
+              margin: EdgeInsets.only(right: style.layout.xxxs),
               decoration: BoxDecoration(
                 color: isSelected
-                    ? color.backgroundBlack
-                    : color.backgroundWhite,
+                    ? style.color.backgroundBlack
+                    : style.color.backgroundWhite,
                 borderRadius: BorderRadius.circular(
-                  radius.md,
+                  style.layout.md,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: color.shadowMedium,
-                    blurRadius: radius.md,
+                    color: style.color.shadowMedium,
+                    blurRadius: style.layout.md,
                     offset: const Offset(0, 2),
                   ),
                 ],
@@ -60,14 +58,18 @@ class HomeScheduleSection extends StatelessWidget {
                 children: [
                   Text(
                     DateFormat('E').format(date),
-                    style: context.text.labelMedium.withColor(
-                      isSelected ? color.textWhite : color.textSecondary,
+                    style: style.typography.labelMedium.withColor(
+                      isSelected
+                          ? style.color.textWhite
+                          : style.color.textSecondary,
                     ),
                   ),
                   Text(
                     DateFormat('d').format(date),
-                    style: context.text.labelLarge.withColor(
-                      isSelected ? color.textWhite : color.textSecondary,
+                    style: style.typography.labelLarge.withColor(
+                      isSelected
+                          ? style.color.textWhite
+                          : style.color.textSecondary,
                     ),
                   ),
                 ],

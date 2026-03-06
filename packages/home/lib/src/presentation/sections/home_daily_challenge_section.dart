@@ -11,19 +11,16 @@ class HomeDailyChallengeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final radius = context.radius;
-    final color = context.color;
-    final text = context.text;
+    final style = context.style;
     return Container(
-      padding: EdgeInsets.all(spacing.md),
+      padding: EdgeInsets.all(style.layout.md),
       decoration: BoxDecoration(
-        color: color.backgroundPrimary,
-        borderRadius: BorderRadius.circular(radius.md),
+        color: style.color.backgroundPrimary,
+        borderRadius: BorderRadius.circular(style.layout.md),
         boxShadow: [
           BoxShadow(
-            color: color.shadowLight,
-            blurRadius: radius.md,
+            color: style.color.shadowLight,
+            blurRadius: style.layout.md,
             offset: const Offset(0, 4),
           ),
         ],
@@ -33,15 +30,19 @@ class HomeDailyChallengeSection extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: spacing.sm,
+              spacing: style.layout.sm,
               children: [
                 Text(
                   'Daily challenge',
-                  style: text.titleLarge.withColor(color.textPrimary),
+                  style: style.typography.titleLarge.withColor(
+                    style.color.textPrimary,
+                  ),
                 ),
                 Text(
                   'Do your plan before 09:00 AM',
-                  style: text.labelLarge.withColor(color.textSecondary),
+                  style: style.typography.labelLarge.withColor(
+                    style.color.textSecondary,
+                  ),
                 ),
                 Row(
                   children: [

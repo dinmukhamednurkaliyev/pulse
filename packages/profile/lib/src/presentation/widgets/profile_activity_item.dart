@@ -4,35 +4,32 @@ import 'package:profile/profile.dart';
 
 class ActivityItem extends StatelessWidget {
   const ActivityItem({required this.activity, required this.onTap, super.key});
-  final ProfileActivityItemDisplayModel activity;
+  final ProfileActivityItemViewModel activity;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final color = context.color;
-    final radius = context.radius;
-    final text = context.text;
+    final style = context.style;
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: spacing.xxxs),
+        padding: EdgeInsets.symmetric(vertical: style.layout.xxxs),
         decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: color.borderLight)),
+          border: Border(bottom: BorderSide(color: style.color.borderLight)),
         ),
         child: Row(
-          spacing: spacing.xxxs,
+          spacing: style.layout.xxxs,
           children: [
             Container(
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: color.iconLightGrey.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(radius.md),
+                color: style.color.iconLightGrey.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(style.layout.md),
               ),
               child: Icon(
                 activity.icon,
-                color: color.iconGrey,
+                color: style.color.iconGrey,
                 size: 20,
               ),
             ),
@@ -42,18 +39,22 @@ class ActivityItem extends StatelessWidget {
                 children: [
                   Text(
                     activity.title,
-                    style: text.bodyLarge.withColor(color.textPrimary),
+                    style: style.typography.bodyLarge.withColor(
+                      style.color.textPrimary,
+                    ),
                   ),
                   Text(
                     activity.subtitle,
-                    style: text.bodyLarge.withColor(color.textSecondary),
+                    style: style.typography.bodyLarge.withColor(
+                      style.color.textSecondary,
+                    ),
                   ),
                 ],
               ),
             ),
             Icon(
               Icons.arrow_forward_ios,
-              color: color.textSecondary,
+              color: style.color.textSecondary,
               size: 16,
             ),
           ],

@@ -13,19 +13,20 @@ class HomeWorkoutSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
+    final style = context.style;
     return SizedBox(
       height: 200,
       child: LayoutBuilder(
         builder: (context, constraints) {
           const count = 2;
-          final totalSpacing = spacing.sm * (count - 1);
+          final totalSpacing = style.layout.sm * (count - 1);
           final itemWidth = (constraints.maxWidth - totalSpacing) / count;
 
           return ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: workouts.length,
-            separatorBuilder: (context, index) => SizedBox(width: spacing.sm),
+            separatorBuilder: (context, index) =>
+                SizedBox(width: style.layout.sm),
             itemBuilder: (context, index) {
               final item = workouts[index];
               return SizedBox(

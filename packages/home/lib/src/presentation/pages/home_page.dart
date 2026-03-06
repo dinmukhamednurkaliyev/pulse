@@ -43,21 +43,20 @@ class _HomeHeader extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final text = context.text;
-    final color = context.color;
-
+    final style = context.style;
     final state = context.watch<HomeController>().state;
 
     return NavigationAppBar(
       title: switch (state) {
         HomeInitial() || HomeLoading() || HomeError() => Text(
           'Home',
-          style: text.titleLarge.withColor(color.textPrimary),
+          style: style.typography.titleLarge.withColor(
+            style.color.textPrimary,
+          ),
         ),
 
         HomeLoaded(:final userName, :final avatarUrl) => Row(
-          spacing: spacing.sm,
+          spacing: style.layout.sm,
           children: [
             UserAvatar(url: avatarUrl),
             Expanded(
@@ -78,7 +77,7 @@ class _HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
+    final style = context.style;
     final controller = context.read<HomeController>();
 
     return ScrollColumn(
@@ -102,8 +101,8 @@ class _HomeBody extends StatelessWidget {
                   trainerName: workout.trainerName,
                   trainerImage: workout.trainerImage,
                   backgroundColor: switch (workout.type) {
-                    HomeWorkoutType.yoga => color.cardBackgroundYellow,
-                    HomeWorkoutType.cardio => color.cardBackgroundBlue,
+                    HomeWorkoutType.yoga => style.color.cardBackgroundYellow,
+                    HomeWorkoutType.cardio => style.color.cardBackgroundBlue,
                   },
                 ),
               )
@@ -119,9 +118,9 @@ class _HomeBody extends StatelessWidget {
                     SocialPlatform.telegram => Icons.chat_bubble_outline,
                   },
                   backgroundColor: switch (social.platform) {
-                    SocialPlatform.instagram => color.socialPink,
-                    SocialPlatform.youtube => color.socialRed,
-                    SocialPlatform.telegram => color.socialBlue,
+                    SocialPlatform.instagram => style.color.socialPink,
+                    SocialPlatform.youtube => style.color.socialRed,
+                    SocialPlatform.telegram => style.color.socialBlue,
                   },
                 ),
               )

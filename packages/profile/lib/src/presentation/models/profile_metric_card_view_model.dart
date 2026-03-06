@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 @immutable
-final class ProfileMetricCardDisplayModel {
-  const ProfileMetricCardDisplayModel({
+final class ProfileMetricCardViewModel {
+  const ProfileMetricCardViewModel({
     required this.title,
     required this.value,
     required this.backgroundColor,
@@ -14,7 +14,7 @@ final class ProfileMetricCardDisplayModel {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ProfileMetricCardDisplayModel &&
+      other is ProfileMetricCardViewModel &&
           runtimeType == other.runtimeType &&
           title == other.title &&
           value == other.value &&

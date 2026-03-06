@@ -5,30 +5,32 @@ import 'package:profile/profile.dart';
 class ProfileMetricCard extends StatelessWidget {
   const ProfileMetricCard({required this.metric, super.key});
 
-  final ProfileMetricCardDisplayModel metric;
+  final ProfileMetricCardViewModel metric;
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final radius = context.radius;
-    final color = context.color;
+    final style = context.style;
     return Container(
       height: 80,
-      padding: EdgeInsets.all(spacing.sm),
+      padding: EdgeInsets.all(style.layout.sm),
       decoration: BoxDecoration(
         color: metric.backgroundColor,
-        borderRadius: BorderRadius.circular(radius.xs),
+        borderRadius: BorderRadius.circular(style.layout.xs),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             metric.title,
-            style: context.text.bodySmall.withColor(color.textSecondary),
+            style: style.typography.bodySmall.withColor(
+              style.color.textSecondary,
+            ),
           ),
           Text(
             metric.value,
-            style: context.text.titleMedium.withColor(color.textPrimary),
+            style: style.typography.titleMedium.withColor(
+              style.color.textPrimary,
+            ),
           ),
         ],
       ),

@@ -17,16 +17,16 @@ class HomeSocialMediaIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
+    final style = context.style;
     return Container(
       width: size,
       height: size,
       decoration: BoxDecoration(
-        color: color.backgroundWhite,
+        color: style.color.backgroundWhite,
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: color.shadowMedium,
+            color: style.color.shadowMedium,
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),

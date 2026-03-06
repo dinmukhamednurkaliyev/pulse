@@ -1,4 +1,4 @@
-import 'package:appearance/appearance.dart';
+import 'package:appearance/src/presentation/appearance_system.dart';
 import 'package:flutter/material.dart';
 
 class UserAvatar extends StatelessWidget {
@@ -32,11 +32,13 @@ class UserAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
+    final style = context.style;
 
     final effectiveBorderColor =
         borderColor ??
-        (size > 40 ? color.backgroundPrimary : color.backgroundWhite);
+        (size > 40
+            ? style.color.backgroundPrimary
+            : style.color.backgroundWhite);
 
     return Container(
       width: size,
@@ -52,7 +54,7 @@ class UserAvatar extends StatelessWidget {
         boxShadow: showShadow
             ? [
                 BoxShadow(
-                  color: color.shadowMedium,
+                  color: style.color.shadowMedium,
                   blurRadius: 10,
                   offset: const Offset(0, 2),
                 ),
@@ -67,7 +69,7 @@ class UserAvatar extends StatelessWidget {
                   style: TextStyle(
                     fontSize: size * 0.38,
                     fontWeight: FontWeight.bold,
-                    color: color.textPrimary,
+                    color: style.color.textPrimary,
                   ),
                 ),
               )
@@ -93,14 +95,14 @@ class _ErrorPlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
+    final style = context.style;
 
     return Container(
       alignment: Alignment.center,
-      color: color.iconLightGrey,
+      color: style.color.iconLightGrey,
       child: Icon(
         Icons.person,
-        color: color.iconGrey,
+        color: style.color.iconGrey,
         size: size * 0.6,
       ),
     );

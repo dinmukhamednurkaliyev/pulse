@@ -1,4 +1,4 @@
-import 'package:appearance/appearance.dart';
+import 'package:appearance/src/presentation/appearance_system.dart';
 import 'package:flutter/material.dart';
 
 class PageLayout extends StatelessWidget {
@@ -24,14 +24,15 @@ class PageLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final style = context.style;
     return Scaffold(
-      backgroundColor: backgroundColor ?? context.color.backgroundPrimary,
+      backgroundColor: backgroundColor ?? style.color.backgroundPrimary,
       appBar: appBar != null ? _buildAppBar(appBar!) : null,
       body: useSafeArea
           ? SafeArea(
               child: Padding(
                 padding: EdgeInsetsGeometry.symmetric(
-                  horizontal: horizontalPadding ?? context.spacing.md,
+                  horizontal: horizontalPadding ?? style.layout.md,
                 ),
                 child: body,
               ),

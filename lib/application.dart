@@ -18,14 +18,13 @@ class _ApplicationState extends State<Application> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = buildTheme();
     return MaterialApp.router(
       title: 'Pulse',
       builder: widget.environment.builder,
       scrollBehavior: widget.environment.scrollBehavior,
       locale: widget.environment.locale,
       debugShowCheckedModeBanner: false,
-      theme: theme,
+      theme: ApplicationTheme.light(),
       routerConfig: _router,
     );
   }

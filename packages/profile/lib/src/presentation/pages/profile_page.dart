@@ -54,17 +54,16 @@ class _ProfileHeader extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
-    final text = context.text;
+    final style = context.style;
     return NavigationAppBar(
       title: Text(
         'Profile',
-        style: text.titleLarge.withColor(color.textPrimary),
+        style: style.typography.titleLarge.withColor(style.color.textPrimary),
       ),
       actions: [
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.settings, color: color.textPrimary),
+          icon: Icon(Icons.settings, color: style.color.textPrimary),
         ),
       ],
     );
@@ -83,7 +82,7 @@ class _ProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = context.color;
+    final style = context.style;
 
     return ScrollColumn(
       children: [
@@ -95,13 +94,13 @@ class _ProfileBody extends StatelessWidget {
         ProfileMetricSection(
           metrics: metrics
               .map(
-                (metric) => ProfileMetricCardDisplayModel(
+                (metric) => ProfileMetricCardViewModel(
                   title: metric.title,
                   value: metric.value,
                   backgroundColor: switch (metric.type) {
-                    MetricType.weight => color.metricBackgroundGreen,
-                    MetricType.goal => color.metricBackgroundBlue,
-                    MetricType.calories => color.metricBackgroundOrange,
+                    MetricType.weight => style.color.metricBackgroundGreen,
+                    MetricType.goal => style.color.metricBackgroundBlue,
+                    MetricType.calories => style.color.metricBackgroundOrange,
                   },
                 ),
               )
@@ -110,7 +109,7 @@ class _ProfileBody extends StatelessWidget {
         ProfileActivitySection(
           activities: activities
               .map(
-                (activity) => ProfileActivityItemDisplayModel(
+                (activity) => ProfileActivityItemViewModel(
                   title: activity.title,
                   subtitle: activity.subtitle,
                   icon: switch (activity.type) {

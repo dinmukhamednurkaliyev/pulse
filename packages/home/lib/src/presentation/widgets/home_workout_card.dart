@@ -37,59 +37,65 @@ class WorkoutCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = context.spacing;
-    final color = context.color;
-    final text = context.text;
+    final style = context.style;
 
     return GestureDetector(
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: workout.backgroundColor,
-          borderRadius: BorderRadius.circular(spacing.xs),
+          borderRadius: BorderRadius.circular(style.layout.xs),
           boxShadow: [
             BoxShadow(
-              color: context.color.shadowMedium.withValues(alpha: 0.1),
-              blurRadius: spacing.xs,
+              color: context.style.color.shadowMedium.withValues(alpha: 0.1),
+              blurRadius: style.layout.xs,
               offset: const Offset(0, 2),
             ),
           ],
         ),
         child: Padding(
-          padding: EdgeInsets.all(spacing.sm),
+          padding: EdgeInsets.all(style.layout.sm),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 padding: EdgeInsets.symmetric(
-                  horizontal: spacing.xxs,
-                  vertical: spacing.xxxs,
+                  horizontal: style.layout.xxs,
+                  vertical: style.layout.xxxs,
                 ),
                 decoration: BoxDecoration(
-                  color: color.backgroundWhite.withValues(alpha: 0.3),
-                  borderRadius: BorderRadius.circular(spacing.xxxs),
+                  color: style.color.backgroundWhite.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(style.layout.xxxs),
                 ),
                 child: Text(
                   workout.difficulty,
-                  style: text.bodySmall.withColor(color.textPrimary),
+                  style: style.typography.bodySmall.withColor(
+                    style.color.textPrimary,
+                  ),
                 ),
               ),
-              SizedBox(height: spacing.xxs),
+              SizedBox(height: style.layout.xxs),
 
               Text(
                 workout.date,
-                style: text.bodySmall.withColor(color.textSecondary),
+                style: style.typography.bodySmall.withColor(
+                  style.color.textSecondary,
+                ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
               Text(
                 workout.time,
-                style: text.bodySmall.withColor(color.textSecondary),
+                style: style.typography.bodySmall.withColor(
+                  style.color.textSecondary,
+                ),
                 maxLines: 1,
               ),
               Text(
                 workout.room,
-                style: text.bodySmall.withColor(color.textSecondary),
+                style: style.typography.bodySmall.withColor(
+                  style.color.textSecondary,
+                ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -100,13 +106,13 @@ class WorkoutCard extends StatelessWidget {
                 Row(
                   children: [
                     CircleAvatar(
-                      radius: spacing.xs,
+                      radius: style.layout.xs,
                       backgroundImage: NetworkImage(workout.trainerImage),
-                      backgroundColor: color.backgroundWhite.withValues(
+                      backgroundColor: style.color.backgroundWhite.withValues(
                         alpha: 0.5,
                       ),
                     ),
-                    SizedBox(width: spacing.xxs),
+                    SizedBox(width: style.layout.xxs),
 
                     Expanded(
                       child: Column(
@@ -115,13 +121,15 @@ class WorkoutCard extends StatelessWidget {
                         children: [
                           Text(
                             'Trainer',
-                            style: text.labelSmall.withColor(
-                              color.textSecondary,
+                            style: style.typography.labelSmall.withColor(
+                              style.color.textSecondary,
                             ),
                           ),
                           Text(
                             workout.trainerName,
-                            style: text.bodySmall.withColor(color.textPrimary),
+                            style: style.typography.bodySmall.withColor(
+                              style.color.textPrimary,
+                            ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -134,16 +142,16 @@ class WorkoutCard extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Container(
-                    width: spacing.xl,
-                    height: spacing.xl,
+                    width: style.layout.xl,
+                    height: style.layout.xl,
                     decoration: BoxDecoration(
-                      color: color.iconLightGrey,
-                      borderRadius: BorderRadius.circular(spacing.xxs),
+                      color: style.color.iconLightGrey,
+                      borderRadius: BorderRadius.circular(style.layout.xxs),
                     ),
                     child: Icon(
-                      size: spacing.md,
+                      size: style.layout.md,
                       Icons.extension,
-                      color: color.iconGrey,
+                      color: style.color.iconGrey,
                     ),
                   ),
                 ),
