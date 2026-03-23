@@ -30,11 +30,11 @@ dependencies:
     path: packages/session
 
 dev_dependencies:
-  alchemist: ^0.13.0
+  alchemist: ^0.14.0
   bloc_test: ^10.0.0
   flutter_test:
     sdk: flutter
-  melos: ^7.4.0
+  melos: ^7.4.1
   mocktail: ^1.0.4
   mocktail_image_network: ^1.2.0
   very_good_analysis: ^10.1.0
